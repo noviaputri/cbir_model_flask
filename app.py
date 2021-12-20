@@ -34,6 +34,16 @@ def search():
         select_model = request.form.get('select')
         print(select_model)
 
+        if select_model == "Model 1":
+            feature_path = feature_path1
+            model_path = model_path1
+        if select_model == "Model 2":
+            feature_path = feature_path2
+            model_path = model_path2
+        if select_model == "Model 3":
+            feature_path = feature_path3
+            model_path = model_path3
+
         base_dataset = "static/dataset"
         class_dir = ['Normal', 'Tube', 'Effusion']
         type_dataset = ['val', 'train']
@@ -55,10 +65,10 @@ def search():
             image = cv2.resize(image, IMAGE_SIZE)
             image = np.array(image).astype("float32") / 255.0
             image = tf.expand_dims(image, axis = 0)
-            with open(feature_path1) as f:
+            with open(feature_path) as f:
                 training_indexed = json.load(f)
             #auto_encoder = ConvAutoEncoder.build(IMAGE_SIZE[0], IMAGE_SIZE[1], 3)
-            auto_encoder = load_model(model_path1)
+            auto_encoder = load_model(model_path)
             encoder = Model(inputs=auto_encoder.input, outputs=auto_encoder.get_layer("encoded").output)
             features_retrieved = encoder.predict(image)[0]
             
