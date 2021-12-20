@@ -1,0 +1,67 @@
+{% extends "_base.html" %}
+
+{% block content %}
+
+<div class="row">
+
+  <div class="column" >
+    <div class=""> 
+      <select name="select_model" id="selected_model">
+        <option value='model1' name="mode">Model 1</option>
+        <option value='model2' name="mode">Model 2</option>
+        <option value='model3' name="mode">Model 3</option>
+      </select>
+    </div>   
+  </div>
+
+  <div class="col-md-7">
+
+    <h2>Select an Image</h2>
+    <br>
+    <div class="row">
+      <div class="col-md-6">
+        <p>
+          <p>Normal</p>
+          <img src="https://i.ibb.co/5Rm0nqf/AM233R.jpg" alt="AM233R" style="height: 150px; width: 150px;" class="img">
+        </p>
+        <p>
+          <p>Effusion</p>
+          <img src="https://i.ibb.co/JxyJgg3/CE25R.jpg" alt="CE25R" style="height: 150px; width: 150px;" class="img">
+        </p>
+      </div>
+      <div class="col-md-6">
+        <p>
+          <p>Tube</p>
+          <img src="https://i.ibb.co/gR7Mf5W/AM196R.jpg" alt="AM196R" style="height: 150px; width: 150px;" class="img">
+        </p>
+        <p>
+          <p>Normal</p>
+          <img src="https://i.ibb.co/gjLJK8V/AM17L.jpg" alt="AM17L" style="height: 150px; width: 150px;" class="img">
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-md-offset-1">
+    <h2>Results</h2>
+    <br>
+    <p id="searching">Searching...</p>
+    <p id="error">Oh no! No results! Check your internet connection.</p>
+    <br><br>
+    <table class="table " id="results-table" style="display : results-table !important">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody id="results">
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<br>
+
+{% endblock %}
